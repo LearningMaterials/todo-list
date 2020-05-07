@@ -1,0 +1,12 @@
+node(label) {
+    stage('Checkout repo') {
+          git url: 'https://github.com/LearningMaterials/todo-list.git',
+              branch: 'master'
+    }
+
+     stage('Contract test') {
+          dir('backend'){
+            sh './gradlew clean test'
+          }
+      }
+}
